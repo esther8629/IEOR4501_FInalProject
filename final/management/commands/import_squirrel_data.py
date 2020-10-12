@@ -14,8 +14,8 @@ class Command(BaseCommand):
             for i in read:
                # print(i)
                 Location.objects.create(
-                        Latitude=i['X'],
-                        Longtitude=i['Y'],
+                        Latitude=i['Y'],
+                        Longtitude=i['X'],
                         Unique_Squirrel_ID=i['Unique Squirrel ID'],
                         Shift=i['Shift'],
                         Date=i['Date'],
