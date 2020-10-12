@@ -83,3 +83,7 @@ class Location(models.Model):
     Approaches = models.BooleanField()
     Indifferent = models.BooleanField()
     Runs_From = models.BooleanField()
+
+    def __str__(self):
+        return self.Unique_Squirrel_ID
+
