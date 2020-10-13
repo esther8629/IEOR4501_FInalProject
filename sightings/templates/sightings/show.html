@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+    <body>
+	{% for l in locations%}
+	<li><a href="{% url 'sightings:detail' l.Unique_Squirrel_ID %}">{{l.Unique_Squirrel_ID}}</a></li>
+	Date: {{l.Date}}
+	{% endfor %}
+    </body>
+</html>
