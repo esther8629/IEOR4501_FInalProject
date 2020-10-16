@@ -4,6 +4,6 @@ from . import views
 app_name = 'sightings'
 
 urlpatterns = [
-        path('',views.show),
+        path('',views.show,name = 'show'),
         path('<str:Unique_Squirrel_ID>/',views.detail,name = 'detail')
         ]

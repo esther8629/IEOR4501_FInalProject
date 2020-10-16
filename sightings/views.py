@@ -11,12 +11,14 @@ def show(request):
 
 def detail(request,Unique_Squirrel_ID):
     squirrel = Location.objects.get(Unique_Squirrel_ID = Unique_Squirrel_ID)
-    form= LocationForm(request.POST or None)
+    #form= LocationForm(request.POST or None)
     if request.method == 'POST':
+        form= LocationForm(request.POST,instance=squirrel)
         if form.is_valid():
             form.save()
             return JsonResponse({})
 
+    form= LocationForm(instance=squirrel)
     context = {
            'form':form
             }
