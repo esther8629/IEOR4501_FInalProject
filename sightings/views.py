@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from django.db.models import Count
+from django.db.models import Count, Max, Q
 
 from final.models import Location
 from sightings.forms import LocationForm
@@ -43,17 +43,14 @@ def add_sightings(request):
 
 
 def stats(request):
-    if 'Age' == 'ADULT':
-        age_count_adult = Location.objects.annotate(Count('Age'))
-    if 'Age' == 'JUVENILE':
-        age_count_juvenile = Location.objects.annotate(Count('Age'))
-    if 'Running' == True:
-        running = Location.objects.annotate(Count('Running'))
+    total_sightings = Location.objects.aggregate(Count('Unique_Squirrel_ID'))
+    age_count = Location.objects.values('Age').annotate(Count('Age'))
+    running = Location.objects.filter(Running=True).annotate(Count('Running'))
     latest_sighting = Location.objects.aggregate(Max('Date'))
     fur_color = Location.objects.values('Primary_Fur').annotate(Count('Primary_Fur'))
     context = {
-            'Age count-Adult': age_count_adult,
-            'Age count-Juvenile': age_count_juvenile,
+            'Total Sightings': total_sightings,
+            'Age count': age_count,
             'Latest sighting': latest_sighting,
             'Fur color count': fur_color,
             'Running count': running,
