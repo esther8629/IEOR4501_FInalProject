@@ -21,8 +21,11 @@ sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossor
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'sightings:show' %}">Sightings </a>
           </li>
+	   <li class="nav-item">
+            <a class="nav-link" href="{% url 'sightings:add' %}">Add Sighting</a>
+          </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Stats</a>
+            <a class="nav-link" href="{% url 'sightings:stats' %}">Stats</a>
           </li>
         </ul>
       </div>
@@ -32,7 +35,7 @@ sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossor
 
       <div class="starter-template">
         <h1>Bootstrap starter template</h1>
-        <p class="lead"> Update the sightings below.</p>
+	<strong><p class="lead"> Update the sightings below.</p></strong>
       </div>
       <div>
           <form  method="post">
