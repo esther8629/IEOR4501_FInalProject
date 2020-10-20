@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import JsonResponse
 from django.db.models import Count, Max, Q
 
@@ -20,7 +20,7 @@ def detail(request,Unique_Squirrel_ID):
         form= LocationForm(request.POST,instance=squirrel)
         if form.is_valid():
             form.save()
-            return JsonResponse({})
+            return redirect('sightings:show')
 
     form= LocationForm(instance=squirrel)
     context = {
@@ -34,7 +34,7 @@ def add_sightings(request):
     if request.method == 'POST':
         if addform.is_valid():
             addform.save()
-            return JsonResponse({})
+            return redirect('sightings:show')
         else:
             return JsonResponse({'Errors':addform.errors}, status=400)
     
