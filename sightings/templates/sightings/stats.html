@@ -1,9 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-	   <title>General Statistics of the squirrel sightings.</title>
+	   <title>General Statistics of the Squirrel Sightings.</title>
 	</head>
 	<body>
-		Some stats here.
+
+	<div>
+		<li>Total Sightings: {{Total_Sightings.total_sightings}}</li>
+	</div>
+	
+	<div>
+		<li>Most Recent Sighting: {{Latest_Sighting.latest_sighting}} </li>
+	</div>
+	
+	<div>
+		{% for s in Shift_Count %}
+		<li>Shift Count - {{s.Shift}}: {{s.shift_count}} </li>
+		{% endfor %}
+	</div>
+
+	<div>
+		{% for age in Age_Count %}
+		<li>Age Count - {{age.Age}}: {{age.age_count}} </li>
+		{% endfor %}
+	</div>
+
+	<div>
+		{% for fur in Fur_Color_Count %}
+		<li>Fur Color - {{fur.Primary_Fur}}: {{fur.fur_color_count}} </li>
+		{% endfor %}
+	</div>
+
 	</body>
 </html>

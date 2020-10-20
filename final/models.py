@@ -84,6 +84,7 @@ class Location(models.Model):
     Indifferent = models.NullBooleanField()
     Runs_From = models.NullBooleanField()
 
+    
     def __str__(self):
         return self.Unique_Squirrel_ID
 
